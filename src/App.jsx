@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
+import "./App.css";
+
 function App() {
   const [password, setPassword] = useState("");
   const [capitals, setCapitals] = useState(true);
@@ -35,14 +37,6 @@ function App() {
         <div className="inputArea">
           <input value={password} type="text" className="passOutput" />
           <div className="checkboxes">
-            <input
-              value={numOfChars}
-              type="number"
-              className="numOfCharsInput"
-              onChange={(e) => {
-                setNumOfChars(e.target.value);
-              }}
-            />
             <label>
               <input
                 defaultChecked
@@ -83,7 +77,8 @@ function App() {
               />
               Special Characters
             </label>
-            <button
+          </div>
+          <button
               className="genPass"
               onClick={() =>
                 genpass(
@@ -95,10 +90,17 @@ function App() {
                 )
               }
             >
+              <input
+              value={numOfChars}
+              type="number"
+              className="numOfCharsInput"
+              onChange={(e) => {
+                setNumOfChars(e.target.value);
+              }}
+            />
               {" "}
               Generate Password{" "}
             </button>
-          </div>
         </div>
       </div>
     </>
